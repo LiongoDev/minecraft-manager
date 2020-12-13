@@ -20,6 +20,7 @@ Restart=on-failure
 RestartSec=60s
 
 ExecStart=java -server -Xms${JAVA_XMS} -Xmx${JAVA_XMX} ${JAVA_OPTS} -jar minecraft_server.jar nogui
+ExecReload=mcrcon -w 5 reload
 ExecStop=mcrcon -w 5 "say ${SERVER_STOP_MESSAGE}" save-all stop
 
 [Install]
